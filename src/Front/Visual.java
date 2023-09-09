@@ -26,6 +26,7 @@ public class Visual extends javax.swing.JFrame {
     ImageIcon iconConsumer = new ImageIcon("C:\\Users\\alanm\\OneDrive\\Documentos\\NetBeansProjects\\ConsumerProducer\\src\\images\\consumer.png");
     ImageIcon iconConsumerWorking = new ImageIcon("C:\\Users\\alanm\\OneDrive\\Documentos\\NetBeansProjects\\ConsumerProducer\\src\\images\\consumiendo.gif");
     ImageIcon iconZZZ = new ImageIcon("C:\\Users\\alanm\\OneDrive\\Documentos\\NetBeansProjects\\ConsumerProducer\\src\\images\\zzz.gif");
+
     /**
      * Creates new form Visual
      */
@@ -220,7 +221,6 @@ public class Visual extends javax.swing.JFrame {
     private void IniciarProduccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IniciarProduccionActionPerformed
 
         this.PlanificadorProcesos.startProcess();
-       
 
         Timer colorTimer = new Timer(100, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -306,174 +306,171 @@ public class Visual extends javax.swing.JFrame {
     public void setProducersConsumers() {
 
         switch (this.PlanificadorProcesos.getUsingAlmacen()) {
-    case "Productor 1":
-        setAllIconsDefault();
-        producer1.setIcon(iconProducerWorking);
-        break;
+            case "Productor 1":
+                setAllIconsDefault();
+                producer1.setIcon(iconProducerWorking);
+                break;
 
-    case "Consumidor 1":
-        setAllIconsDefault();
-        consumer1.setIcon(iconConsumerWorking);
-        break;
+            case "Consumidor 1":
+                setAllIconsDefault();
+                consumer1.setIcon(iconConsumerWorking);
+                break;
 
-    case "Productor 2":
-        setAllIconsDefault();
-        producer2.setIcon(iconProducerWorking);
-        break;
+            case "Productor 2":
+                setAllIconsDefault();
+                producer2.setIcon(iconProducerWorking);
+                break;
 
-    case "Consumidor 2":
-        setAllIconsDefault();
-        consumer2.setIcon(iconConsumerWorking);
-        break;
+            case "Consumidor 2":
+                setAllIconsDefault();
+                consumer2.setIcon(iconConsumerWorking);
+                break;
 
-    case "Productor 3":
-        setAllIconsDefault();
-        producer3.setIcon(iconProducerWorking);
-        break;
+            case "Productor 3":
+                setAllIconsDefault();
+                producer3.setIcon(iconProducerWorking);
+                break;
 
-    case "Consumidor 3":
-        setAllIconsDefault();
-        consumer3.setIcon(iconConsumerWorking);
-        break;
+            case "Consumidor 3":
+                setAllIconsDefault();
+                consumer3.setIcon(iconConsumerWorking);
+                break;
 
-    case "Productor 4":
-        setAllIconsDefault();
-        producer4.setIcon(iconProducerWorking);
-        break;
+            case "Productor 4":
+                setAllIconsDefault();
+                producer4.setIcon(iconProducerWorking);
+                break;
 
-    case "Consumidor 4":
-        setAllIconsDefault();
-        consumer4.setIcon(iconConsumerWorking);
-        break;
+            case "Consumidor 4":
+                setAllIconsDefault();
+                consumer4.setIcon(iconConsumerWorking);
+                break;
 
-    case "Productor 5":
-        setAllIconsDefault();
-        producer5.setIcon(iconProducerWorking);
-        break;
+            case "Productor 5":
+                setAllIconsDefault();
+                producer5.setIcon(iconProducerWorking);
+                break;
 
-    case "Consumidor 5":
-        setAllIconsDefault();
-        consumer5.setIcon(iconConsumerWorking);
-        break;
+            case "Consumidor 5":
+                setAllIconsDefault();
+                consumer5.setIcon(iconConsumerWorking);
+                break;
 
-    case "Productor 6":
-        setAllIconsDefault();
-        producer6.setIcon(iconProducerWorking);
-        break;
+            case "Productor 6":
+                setAllIconsDefault();
+                producer6.setIcon(iconProducerWorking);
+                break;
 
-    case "Consumidor 6":
-        setAllIconsDefault();
-        consumer6.setIcon(iconConsumerWorking);
-        break;
-    default: 
-        setAllIconsDefault();
-                
-             
+            case "Consumidor 6":
+                setAllIconsDefault();
+                consumer6.setIcon(iconConsumerWorking);
+                break;
+            default:
+                setAllIconsDefault();
 
         }
     }
-    
-    public void changeStatus(){
-        if(this.PlanificadorProcesos.getAlmacen().size()==1 || this.PlanificadorProcesos.getAlmacen().size()==6){
+
+    public void changeStatus() {
+        if (this.PlanificadorProcesos.getAlmacen().size() == 1 || this.PlanificadorProcesos.getAlmacen().size() == 6) {
             setAllTextsDefault();
         }
     }
 
     public void setAllIconsDefault() {
-    producer1.setIcon(iconProducer);
-    consumer1.setIcon(iconConsumer);
-    
-    producer2.setIcon(iconProducer);
-    consumer2.setIcon(iconConsumer);
-    
-    producer3.setIcon(iconProducer);
-    consumer3.setIcon(iconConsumer);
-    
-    producer4.setIcon(iconProducer);
-    consumer4.setIcon(iconConsumer);
-    
-    producer5.setIcon(iconProducer);
-    consumer5.setIcon(iconConsumer);
-    
-    producer6.setIcon(iconProducer);
-    consumer6.setIcon(iconConsumer);
+        producer1.setIcon(iconProducer);
+        consumer1.setIcon(iconConsumer);
+
+        producer2.setIcon(iconProducer);
+        consumer2.setIcon(iconConsumer);
+
+        producer3.setIcon(iconProducer);
+        consumer3.setIcon(iconConsumer);
+
+        producer4.setIcon(iconProducer);
+        consumer4.setIcon(iconConsumer);
+
+        producer5.setIcon(iconProducer);
+        consumer5.setIcon(iconConsumer);
+
+        producer6.setIcon(iconProducer);
+        consumer6.setIcon(iconConsumer);
     }
-    
-    public void setSleep(){
+
+    public void setSleep() {
         changeStatus();
-        
-        for(String i :this.PlanificadorProcesos.getSleep() )
-       switch(i){
-           
-    case "Productor 1":
-        producer1.setIcon(iconZZZ);
-        
-        break;
 
-    case "Consumidor 1":
-        consumer1.setIcon(iconZZZ);
-        
-        break;
+        for (String i : this.PlanificadorProcesos.getSleep()) {
+            switch (i) {
 
-    case "Productor 2":
-        producer2.setIcon(iconZZZ);
-       
-        break;
+                case "Productor 1":
+                    producer1.setIcon(iconZZZ);
 
-    case "Consumidor 2":
-        consumer2.setIcon(iconZZZ);
-    
-        break;
+                    break;
 
-    case "Productor 3":
-        producer3.setIcon(iconZZZ);
-        
-        break;
+                case "Consumidor 1":
+                    consumer1.setIcon(iconZZZ);
 
-    case "Consumidor 3":
-        consumer3.setIcon(iconZZZ);
-        
-        break;
+                    break;
 
-    case "Productor 4":
-        producer4.setIcon(iconZZZ);
-        
-        break;
+                case "Productor 2":
+                    producer2.setIcon(iconZZZ);
 
-    case "Consumidor 4":
-        consumer4.setIcon(iconZZZ);
-        
-        break;
+                    break;
 
-    case "Productor 5":
-        producer5.setIcon(iconZZZ);
-      
-        break;
+                case "Consumidor 2":
+                    consumer2.setIcon(iconZZZ);
 
-    case "Consumidor 5":
-        consumer5.setIcon(iconZZZ);
-      
-        break;
+                    break;
 
-    case "Productor 6":
-        producer6.setIcon(iconZZZ);
-        
-        break;
+                case "Productor 3":
+                    producer3.setIcon(iconZZZ);
 
-    case "Consumidor 6":
-        consumer6.setIcon(iconZZZ);
-        
-        break;
+                    break;
 
+                case "Consumidor 3":
+                    consumer3.setIcon(iconZZZ);
 
-    default:
-        setAllTextsDefault();
+                    break;
 
-    
-       }
+                case "Productor 4":
+                    producer4.setIcon(iconZZZ);
+
+                    break;
+
+                case "Consumidor 4":
+                    consumer4.setIcon(iconZZZ);
+
+                    break;
+
+                case "Productor 5":
+                    producer5.setIcon(iconZZZ);
+
+                    break;
+
+                case "Consumidor 5":
+                    consumer5.setIcon(iconZZZ);
+
+                    break;
+
+                case "Productor 6":
+                    producer6.setIcon(iconZZZ);
+
+                    break;
+
+                case "Consumidor 6":
+                    consumer6.setIcon(iconZZZ);
+
+                    break;
+
+                default:
+                    setAllTextsDefault();
+
+            }
+        }
     }
-    
-    public void setAllTextsDefault(){
+
+    public void setAllTextsDefault() {
         this.PlanificadorProcesos.clearSleepingList();
         producer1.setText("");
         consumer1.setText("");
@@ -485,7 +482,7 @@ public class Visual extends javax.swing.JFrame {
         consumer4.setText("");
         producer5.setText("");
         consumer5.setText("");
-        producer6.setText("");  
+        producer6.setText("");
         consumer6.setText("");
 
     }

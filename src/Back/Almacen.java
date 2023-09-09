@@ -29,7 +29,7 @@ public class Almacen {
     }
 
     public void setWhoIsUsing(String whoIsUsing) {
-        System.out.println("USANDO "+whoIsUsing);
+        System.out.println("USANDO " + whoIsUsing);
         this.whoIsUsing = whoIsUsing;
     }
 
@@ -38,18 +38,16 @@ public class Almacen {
     }
 
     public void setWhoIsSleeping(String whoIsSleeping) {
-        System.out.println("Sleeping : "+whoIsUsing);
-        this.whoIsSleeping.add(whoIsUsing) ;
-        
+        System.out.println("Sleeping : " + whoIsUsing);
+        this.whoIsSleeping.add(whoIsUsing);
+
     }
-    
-    public void clearSleepingList(){
-        
-        this.whoIsSleeping.clear(); 
-        
+
+    public void clearSleepingList() {
+
+        this.whoIsSleeping.clear();
+
     }
-    
-    
 
     public void changeUse() {
         if (!this.Inuse) {
@@ -128,7 +126,7 @@ public class Almacen {
     }
 
     public synchronized void waitPapasProducer(String id) {
-        
+
         setWhoIsUsing(id);
         if (papas.size() == 7) {
             System.out.println("Wait on Papas Producer" + id);

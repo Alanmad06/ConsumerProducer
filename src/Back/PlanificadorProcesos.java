@@ -15,57 +15,42 @@ import java.util.logging.Logger;
  * @author alanm
  */
 public class PlanificadorProcesos {
-    
-  
-   
-    public Almacen Almacen = new Almacen();
-   
-    
-      
-    public PlanificadorProcesos(){
-        System.out.println("constructor planificador procesos");
-      
-            
-   }
-    
-   public ArrayList<Integer> getAlmacen(){
-       return Almacen.viewPapas();
-   }
-  
-   
-   public void startProcess() {
-      
-      
-      for(int i = 0; i<6;i++){
-          Producer producer = new Producer(Almacen,i+1);
-          Consumer consumer = new Consumer(Almacen,i+1);
-          Thread hiloProducer = new Thread(producer);
-          Thread hiloConsumer = new Thread(consumer);
-          hiloConsumer.start();
-          hiloProducer.start();
-          
-          
-      }
-       
-     
-       
-       
-  
-   }
-   
-   public String getUsingAlmacen(){
-       return Almacen.getWhoIsUsing();
-   }
-   
-   public ArrayList<String> getSleep(){
-       return Almacen.getWhoIsSleeping();
-   }
-   
-   public void clearSleepingList(){
-       Almacen.clearSleepingList();
-   }
 
-   
-    
-    
+    public Almacen Almacen = new Almacen();
+
+    public PlanificadorProcesos() {
+        System.out.println("constructor planificador procesos");
+
+    }
+
+    public ArrayList<Integer> getAlmacen() {
+        return Almacen.viewPapas();
+    }
+
+    public void startProcess() {
+
+        for (int i = 0; i < 6; i++) {
+            Producer producer = new Producer(Almacen, i + 1);
+            Consumer consumer = new Consumer(Almacen, i + 1);
+            Thread hiloProducer = new Thread(producer);
+            Thread hiloConsumer = new Thread(consumer);
+            hiloConsumer.start();
+            hiloProducer.start();
+
+        }
+
+    }
+
+    public String getUsingAlmacen() {
+        return Almacen.getWhoIsUsing();
+    }
+
+    public ArrayList<String> getSleep() {
+        return Almacen.getWhoIsSleeping();
+    }
+
+    public void clearSleepingList() {
+        Almacen.clearSleepingList();
+    }
+
 }
