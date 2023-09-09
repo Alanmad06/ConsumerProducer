@@ -15,7 +15,8 @@ import java.util.logging.Logger;
  */
 public class Consumer implements Runnable{
 
-  Random rand = new Random();
+    Random rand = new Random();
+    int id;
     public boolean work = false;
    public static Almacen Almacen;
     
@@ -26,10 +27,11 @@ public class Consumer implements Runnable{
     
     
    
-    Consumer( Almacen Almacen){
+    Consumer( Almacen Almacen , int id){
         
         
         this.Almacen=Almacen;
+        this.id = id;
          
     }
 
@@ -60,73 +62,49 @@ public class Consumer implements Runnable{
      */
      @Override
     public void run() {
-        
-        
-         while(true){
-           
-        changeWork();
+   
          
+           
+      
         
         Consumiendo();
         
-        changeWork();
+       
       
-         }
          
-         }
-    
+         
+         
+    }
    
   
     
     
     public void Consumiendo(){
          
+       while(true){  
            
-                
-                
+        changeWork();        
+       
+          
             
                      
              
-              System.out.println("Inicio");
-             
+           
             
-         
-        int numeroAleatorio = rand.nextInt(2001)+3000;
-        System.out.println(numeroAleatorio);
-          
         
-       
-       
-        try {
-            sleep(numeroAleatorio);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Producer.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            
-            Almacen.popPapa(); 
         
-             
-         
+        
+        Almacen.waitPapasConsumer("Consumidor "+id);     
+        
+       changeWork();   
+           }
+       
          
     }
     
-    public void waitProcess(){
-         synchronized(Almacen){
-             try {
-                 Almacen.wait();
-                 System.out.println("Waiting...");
-             } catch (InterruptedException ex) {
-                 Logger.getLogger(Producer.class.getName()).log(Level.SEVERE, null, ex);
-             }
-         }
-    }
     
-    public void wakingUp(){
-        synchronized(Almacen){
-            System.out.println("Waking Up");
-            Almacen.notifyAll();
-         }
-    }
+    
+    
     
     public boolean isWorking(){
         return this.work;

@@ -10,6 +10,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.Timer;
 
 /**
@@ -17,11 +19,13 @@ import javax.swing.Timer;
  * @author alanm
  */
 public class Visual extends javax.swing.JFrame {
-    
-    
-     PlanificadorProcesos PlanificadorProcesos = new PlanificadorProcesos();
-     
 
+    PlanificadorProcesos PlanificadorProcesos = new PlanificadorProcesos();
+    ImageIcon iconProducerWorking = new ImageIcon("C:\\Users\\alanm\\OneDrive\\Documentos\\NetBeansProjects\\ConsumerProducer\\src\\images\\produciendo.gif");
+    ImageIcon iconProducer = new ImageIcon("C:\\Users\\alanm\\OneDrive\\Documentos\\NetBeansProjects\\ConsumerProducer\\src\\images\\worker.png");
+    ImageIcon iconConsumer = new ImageIcon("C:\\Users\\alanm\\OneDrive\\Documentos\\NetBeansProjects\\ConsumerProducer\\src\\images\\consumer.png");
+    ImageIcon iconConsumerWorking = new ImageIcon("C:\\Users\\alanm\\OneDrive\\Documentos\\NetBeansProjects\\ConsumerProducer\\src\\images\\consumiendo.gif");
+    ImageIcon iconZZZ = new ImageIcon("C:\\Users\\alanm\\OneDrive\\Documentos\\NetBeansProjects\\ConsumerProducer\\src\\images\\zzz.gif");
     /**
      * Creates new form Visual
      */
@@ -65,7 +69,7 @@ public class Visual extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 153, 51));
 
-        jPanel2.setBackground(new java.awt.Color(255, 183, 241));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setForeground(new java.awt.Color(255, 102, 153));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -122,39 +126,51 @@ public class Visual extends javax.swing.JFrame {
         });
         jPanel2.add(IniciarProduccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, -1, -1));
 
+        producer6.setForeground(new java.awt.Color(0, 0, 0));
         producer6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/worker.png"))); // NOI18N
         jPanel2.add(producer6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, -1, -1));
 
+        producer1.setForeground(new java.awt.Color(0, 0, 0));
         producer1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/worker.png"))); // NOI18N
-        jPanel2.add(producer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, -1, -1));
+        jPanel2.add(producer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 90, -1));
 
+        producer2.setForeground(new java.awt.Color(0, 0, 0));
         producer2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/worker.png"))); // NOI18N
         jPanel2.add(producer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, -1));
 
+        producer3.setForeground(new java.awt.Color(0, 0, 0));
         producer3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/worker.png"))); // NOI18N
         jPanel2.add(producer3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, -1, -1));
 
+        producer4.setForeground(new java.awt.Color(0, 0, 0));
         producer4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/worker.png"))); // NOI18N
         jPanel2.add(producer4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
 
+        producer5.setForeground(new java.awt.Color(0, 0, 0));
         producer5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/worker.png"))); // NOI18N
         jPanel2.add(producer5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, -1, -1));
 
+        consumer4.setForeground(new java.awt.Color(0, 0, 0));
         consumer4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/consumer.png"))); // NOI18N
         jPanel2.add(consumer4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 180, -1, -1));
 
+        consumer1.setForeground(new java.awt.Color(0, 0, 0));
         consumer1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/consumer.png"))); // NOI18N
-        jPanel2.add(consumer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, -1, -1));
+        jPanel2.add(consumer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 70, -1));
 
+        consumer2.setForeground(new java.awt.Color(0, 0, 0));
         consumer2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/consumer.png"))); // NOI18N
         jPanel2.add(consumer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, -1, -1));
 
+        consumer3.setForeground(new java.awt.Color(0, 0, 0));
         consumer3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/consumer.png"))); // NOI18N
         jPanel2.add(consumer3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 140, -1, -1));
 
+        consumer5.setForeground(new java.awt.Color(0, 0, 0));
         consumer5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/consumer.png"))); // NOI18N
         jPanel2.add(consumer5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, -1, -1));
 
+        consumer6.setForeground(new java.awt.Color(0, 0, 0));
         consumer6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/consumer.png"))); // NOI18N
         jPanel2.add(consumer6, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 240, -1, -1));
 
@@ -202,23 +218,20 @@ public class Visual extends javax.swing.JFrame {
     }//GEN-LAST:event_Produccion7ActionPerformed
 
     private void IniciarProduccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IniciarProduccionActionPerformed
-         
 
-        
-        
         this.PlanificadorProcesos.startProcess();
+       
 
-        
-        
-         
         Timer colorTimer = new Timer(100, new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-            setAllDefault();
-            colorBotons();
-           
-        }
-    });
-    colorTimer.start();
+            public void actionPerformed(ActionEvent e) {
+                setAllDefault();
+                setProducersConsumers();
+                setSleep();
+                colorBotons();
+
+            }
+        });
+        colorTimer.start();
 
     }//GEN-LAST:event_IniciarProduccionActionPerformed
 
@@ -226,61 +239,61 @@ public class Visual extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Produccion4ActionPerformed
 
-    public void colorBotons(){
+    public void colorBotons() {
         switch (this.PlanificadorProcesos.Almacen.viewPapas().size()) {
-            
-    case 1:
-        Produccion1.setBackground(Color.red);
-        break;
-    case 2:
-        Produccion1.setBackground(Color.red);
-        Produccion2.setBackground(Color.red);
-        break;
-    case 3:
-        Produccion1.setBackground(Color.red);
-        Produccion2.setBackground(Color.red);
-        Produccion3.setBackground(Color.red);
-        break;
-    case 4:
-        Produccion1.setBackground(Color.red);
-        Produccion2.setBackground(Color.red);
-        Produccion3.setBackground(Color.red);
-        Produccion4.setBackground(Color.red);
-        break;
-    case 5:
-        Produccion1.setBackground(Color.red);
-        Produccion2.setBackground(Color.red);
-        Produccion3.setBackground(Color.red);
-        Produccion4.setBackground(Color.red);
-        Produccion5.setBackground(Color.red);
-        break;
-    case 6:
-        Produccion1.setBackground(Color.red);
-        Produccion2.setBackground(Color.red);
-        Produccion3.setBackground(Color.red);
-        Produccion4.setBackground(Color.red);
-        Produccion5.setBackground(Color.red);
-        Produccion6.setBackground(Color.red);
-        break;
-    case 7:
-        Produccion1.setBackground(Color.red);
-        Produccion2.setBackground(Color.red);
-        Produccion3.setBackground(Color.red);
-        Produccion4.setBackground(Color.red);
-        Produccion5.setBackground(Color.red);
-        Produccion6.setBackground(Color.red);
-        Produccion7.setBackground(Color.red);
-        break;
-    default :  
-        setAllDefault();
-        break;
-    
-}
+
+            case 1:
+                Produccion1.setBackground(Color.red);
+                break;
+            case 2:
+                Produccion1.setBackground(Color.red);
+                Produccion2.setBackground(Color.red);
+                break;
+            case 3:
+                Produccion1.setBackground(Color.red);
+                Produccion2.setBackground(Color.red);
+                Produccion3.setBackground(Color.red);
+                break;
+            case 4:
+                Produccion1.setBackground(Color.red);
+                Produccion2.setBackground(Color.red);
+                Produccion3.setBackground(Color.red);
+                Produccion4.setBackground(Color.red);
+                break;
+            case 5:
+                Produccion1.setBackground(Color.red);
+                Produccion2.setBackground(Color.red);
+                Produccion3.setBackground(Color.red);
+                Produccion4.setBackground(Color.red);
+                Produccion5.setBackground(Color.red);
+                break;
+            case 6:
+                Produccion1.setBackground(Color.red);
+                Produccion2.setBackground(Color.red);
+                Produccion3.setBackground(Color.red);
+                Produccion4.setBackground(Color.red);
+                Produccion5.setBackground(Color.red);
+                Produccion6.setBackground(Color.red);
+                break;
+            case 7:
+                Produccion1.setBackground(Color.red);
+                Produccion2.setBackground(Color.red);
+                Produccion3.setBackground(Color.red);
+                Produccion4.setBackground(Color.red);
+                Produccion5.setBackground(Color.red);
+                Produccion6.setBackground(Color.red);
+                Produccion7.setBackground(Color.red);
+                break;
+            default:
+                setAllDefault();
+                break;
+
+        }
     }
-    
-    public void setAllDefault(){
+
+    public void setAllDefault() {
         Color defaultColor = new Color(187 / 255f, 187 / 255f, 187 / 255f);
-       
+
         Produccion1.setBackground(defaultColor);
         Produccion2.setBackground(defaultColor);
         Produccion3.setBackground(defaultColor);
@@ -289,6 +302,194 @@ public class Visual extends javax.swing.JFrame {
         Produccion6.setBackground(defaultColor);
         Produccion7.setBackground(defaultColor);
     }
+
+    public void setProducersConsumers() {
+
+        switch (this.PlanificadorProcesos.getUsingAlmacen()) {
+    case "Productor 1":
+        setAllIconsDefault();
+        producer1.setIcon(iconProducerWorking);
+        break;
+
+    case "Consumidor 1":
+        setAllIconsDefault();
+        consumer1.setIcon(iconConsumerWorking);
+        break;
+
+    case "Productor 2":
+        setAllIconsDefault();
+        producer2.setIcon(iconProducerWorking);
+        break;
+
+    case "Consumidor 2":
+        setAllIconsDefault();
+        consumer2.setIcon(iconConsumerWorking);
+        break;
+
+    case "Productor 3":
+        setAllIconsDefault();
+        producer3.setIcon(iconProducerWorking);
+        break;
+
+    case "Consumidor 3":
+        setAllIconsDefault();
+        consumer3.setIcon(iconConsumerWorking);
+        break;
+
+    case "Productor 4":
+        setAllIconsDefault();
+        producer4.setIcon(iconProducerWorking);
+        break;
+
+    case "Consumidor 4":
+        setAllIconsDefault();
+        consumer4.setIcon(iconConsumerWorking);
+        break;
+
+    case "Productor 5":
+        setAllIconsDefault();
+        producer5.setIcon(iconProducerWorking);
+        break;
+
+    case "Consumidor 5":
+        setAllIconsDefault();
+        consumer5.setIcon(iconConsumerWorking);
+        break;
+
+    case "Productor 6":
+        setAllIconsDefault();
+        producer6.setIcon(iconProducerWorking);
+        break;
+
+    case "Consumidor 6":
+        setAllIconsDefault();
+        consumer6.setIcon(iconConsumerWorking);
+        break;
+    default: 
+        setAllIconsDefault();
+                
+             
+
+        }
+    }
+    
+    public void changeStatus(){
+        if(this.PlanificadorProcesos.getAlmacen().size()==1 || this.PlanificadorProcesos.getAlmacen().size()==6){
+            setAllTextsDefault();
+        }
+    }
+
+    public void setAllIconsDefault() {
+    producer1.setIcon(iconProducer);
+    consumer1.setIcon(iconConsumer);
+    
+    producer2.setIcon(iconProducer);
+    consumer2.setIcon(iconConsumer);
+    
+    producer3.setIcon(iconProducer);
+    consumer3.setIcon(iconConsumer);
+    
+    producer4.setIcon(iconProducer);
+    consumer4.setIcon(iconConsumer);
+    
+    producer5.setIcon(iconProducer);
+    consumer5.setIcon(iconConsumer);
+    
+    producer6.setIcon(iconProducer);
+    consumer6.setIcon(iconConsumer);
+    }
+    
+    public void setSleep(){
+        changeStatus();
+        
+        for(String i :this.PlanificadorProcesos.getSleep() )
+       switch(i){
+           
+    case "Productor 1":
+        producer1.setIcon(iconZZZ);
+        
+        break;
+
+    case "Consumidor 1":
+        consumer1.setIcon(iconZZZ);
+        
+        break;
+
+    case "Productor 2":
+        producer2.setIcon(iconZZZ);
+       
+        break;
+
+    case "Consumidor 2":
+        consumer2.setIcon(iconZZZ);
+    
+        break;
+
+    case "Productor 3":
+        producer3.setIcon(iconZZZ);
+        
+        break;
+
+    case "Consumidor 3":
+        consumer3.setIcon(iconZZZ);
+        
+        break;
+
+    case "Productor 4":
+        producer4.setIcon(iconZZZ);
+        
+        break;
+
+    case "Consumidor 4":
+        consumer4.setIcon(iconZZZ);
+        
+        break;
+
+    case "Productor 5":
+        producer5.setIcon(iconZZZ);
+      
+        break;
+
+    case "Consumidor 5":
+        consumer5.setIcon(iconZZZ);
+      
+        break;
+
+    case "Productor 6":
+        producer6.setIcon(iconZZZ);
+        
+        break;
+
+    case "Consumidor 6":
+        consumer6.setIcon(iconZZZ);
+        
+        break;
+
+
+    default:
+        setAllTextsDefault();
+
+    
+       }
+    }
+    
+    public void setAllTextsDefault(){
+        this.PlanificadorProcesos.clearSleepingList();
+        producer1.setText("");
+        consumer1.setText("");
+        producer2.setText("");
+        consumer2.setText("");
+        producer3.setText("");
+        consumer3.setText("");
+        producer4.setText("");
+        consumer4.setText("");
+        producer5.setText("");
+        consumer5.setText("");
+        producer6.setText("");  
+        consumer6.setText("");
+
+    }
+
     /**
      * @param args the command line arguments
      */

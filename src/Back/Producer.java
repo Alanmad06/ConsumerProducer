@@ -20,7 +20,8 @@ import javax.swing.Timer;
 public class Producer implements Runnable {
     Random rand = new Random();
     public boolean work = false;
-    public static Almacen Almacen;
+    int id;
+    public Almacen Almacen;
     
     
     
@@ -29,10 +30,10 @@ public class Producer implements Runnable {
      */
     
     
-    Producer( Almacen Almacen){
+    Producer( Almacen Almacen,int id){
        
         this.Almacen=Almacen;
-         
+         this.id = id;
     }
 
     Producer(){
@@ -63,16 +64,15 @@ public class Producer implements Runnable {
     public void run() {
         
         
-           while(true){
-        changeWork();
+        
          
         
         Producir();
         
         
-        changeWork();
         
-           }  
+        
+            
          
          }
     
@@ -87,30 +87,23 @@ public class Producer implements Runnable {
            
              
                 
-                
+     while(true){
+          
+     changeWork();
+     
+    
               
                      
              
-              System.out.println("Inicio");
-             
+     
             
+           
+       
+     Almacen.waitPapasProducer("Productor "+id);
          
-        int numeroAleatorio = rand.nextInt(2001)+3000;
-        System.out.println(numeroAleatorio);
-        
-        
+ changeWork();           
+}
        
-       
-        try {
-            sleep(numeroAleatorio);
-             Almacen.addPapa();
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Producer.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            
-            
-        
-             
          
          
     }
