@@ -38,8 +38,8 @@ public class Almacen {
     }
 
     public void setWhoIsSleeping(String whoIsSleeping) {
-        System.out.println("Sleeping : " + whoIsUsing);
-        this.whoIsSleeping.add(whoIsUsing);
+        System.out.println("Sleeping : " + whoIsSleeping);
+        this.whoIsSleeping.add(whoIsSleeping);
 
     }
 
@@ -65,7 +65,7 @@ public class Almacen {
         return this.Inuse;
     }
 
-    public synchronized void addPapa(String id) {
+    public void addPapa(String id) {
 
         System.out.println(id);
         int numeroAleatorio = rand.nextInt(1001) + 2000;
@@ -83,7 +83,7 @@ public class Almacen {
 
     }
 
-    public synchronized void popPapa(String id) {
+    public  void popPapa(String id) {
 
         System.out.println(id);
         int numeroAleatorio = rand.nextInt(1001) + 2000;
@@ -101,45 +101,49 @@ public class Almacen {
     }
 
     public ArrayList<Integer> viewPapas() {
-        System.out.println(this.papas.size());
+        System.out.println("Tamaño :"+this.papas.size());
         return this.papas;
     }
 
     public synchronized void waitPapasConsumer(String id) {
 
         setWhoIsUsing(id);
-        if (papas.isEmpty()) {
+        while(papas.isEmpty()) {
 
             System.out.println("Wait on Papas Consumer" + id);
 
             try {
+                setWhoIsUsing("");
                 setWhoIsSleeping(id);
                 wait();
             } catch (InterruptedException ex) {
                 Logger.getLogger(Almacen.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-        } else {
+        } 
+            setWhoIsUsing(id);
             popPapa(id);
             notifyAllPapas();
-        }
+            setWhoIsUsing("");
     }
 
     public synchronized void waitPapasProducer(String id) {
 
         setWhoIsUsing(id);
-        if (papas.size() == 7) {
+        while (papas.size() == 7) {
             System.out.println("Wait on Papas Producer" + id);
             try {
+                setWhoIsUsing("");
                 setWhoIsSleeping(id);
                 wait();
             } catch (InterruptedException ex) {
                 Logger.getLogger(Almacen.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else {
+        }   setWhoIsUsing(id);
             addPapa(id);
             notifyAllPapas();
-        }
+            setWhoIsUsing("");
+        
 
     }
 

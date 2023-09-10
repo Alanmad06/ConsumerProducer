@@ -31,18 +31,19 @@ public class Consumer implements Runnable {
 
     @Override
     public void run() {
-
+       
+while (true) {
         Consumiendo();
-
+}
     }
 
     public void Consumiendo() {
 
-        while (true) {
+        
 
             Almacen.waitPapasConsumer("Consumidor " + id);
 
-        }
+        
 
     }
 

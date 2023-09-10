@@ -26,7 +26,7 @@ public class Visual extends javax.swing.JFrame {
     ImageIcon iconConsumer = new ImageIcon("C:\\Users\\alanm\\OneDrive\\Documentos\\NetBeansProjects\\ConsumerProducer\\src\\images\\consumer.png");
     ImageIcon iconConsumerWorking = new ImageIcon("C:\\Users\\alanm\\OneDrive\\Documentos\\NetBeansProjects\\ConsumerProducer\\src\\images\\consumiendo.gif");
     ImageIcon iconZZZ = new ImageIcon("C:\\Users\\alanm\\OneDrive\\Documentos\\NetBeansProjects\\ConsumerProducer\\src\\images\\zzz.gif");
-
+    boolean Action = false;
     /**
      * Creates new form Visual
      */
@@ -222,12 +222,24 @@ public class Visual extends javax.swing.JFrame {
 
         this.PlanificadorProcesos.startProcess();
 
+        
+        Thread hilo = new Thread(){
+            public void run(){
+                while(true){
+                    colorBotons();
+                }
+            }
+        };
+        hilo.start();
         Timer colorTimer = new Timer(100, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                setAllDefault();
+                
+                
+               
+                
                 setProducersConsumers();
                 setSleep();
-                colorBotons();
+                
 
             }
         });
@@ -304,65 +316,65 @@ public class Visual extends javax.swing.JFrame {
     }
 
     public void setProducersConsumers() {
-
+    setAllIconsDefault();
         switch (this.PlanificadorProcesos.getUsingAlmacen()) {
             case "Productor 1":
-                setAllIconsDefault();
+                
                 producer1.setIcon(iconProducerWorking);
                 break;
 
             case "Consumidor 1":
-                setAllIconsDefault();
+               
                 consumer1.setIcon(iconConsumerWorking);
                 break;
 
             case "Productor 2":
-                setAllIconsDefault();
+                
                 producer2.setIcon(iconProducerWorking);
                 break;
 
             case "Consumidor 2":
-                setAllIconsDefault();
+                
                 consumer2.setIcon(iconConsumerWorking);
                 break;
 
             case "Productor 3":
-                setAllIconsDefault();
+                
                 producer3.setIcon(iconProducerWorking);
                 break;
 
             case "Consumidor 3":
-                setAllIconsDefault();
+               
                 consumer3.setIcon(iconConsumerWorking);
                 break;
 
             case "Productor 4":
-                setAllIconsDefault();
+                
                 producer4.setIcon(iconProducerWorking);
                 break;
 
             case "Consumidor 4":
-                setAllIconsDefault();
+              
                 consumer4.setIcon(iconConsumerWorking);
                 break;
 
             case "Productor 5":
-                setAllIconsDefault();
+             
                 producer5.setIcon(iconProducerWorking);
                 break;
 
             case "Consumidor 5":
-                setAllIconsDefault();
+               
                 consumer5.setIcon(iconConsumerWorking);
                 break;
 
             case "Productor 6":
-                setAllIconsDefault();
+                
                 producer6.setIcon(iconProducerWorking);
                 break;
 
             case "Consumidor 6":
-                setAllIconsDefault();
+             
                 consumer6.setIcon(iconConsumerWorking);
                 break;
             default:
@@ -398,73 +410,86 @@ public class Visual extends javax.swing.JFrame {
     }
 
     public void setSleep() {
-        changeStatus();
+            changeStatus();
+            setAllDefault();
+            
 
         for (String i : this.PlanificadorProcesos.getSleep()) {
             switch (i) {
 
                 case "Productor 1":
+                     
                     producer1.setIcon(iconZZZ);
 
                     break;
 
                 case "Consumidor 1":
+                     
                     consumer1.setIcon(iconZZZ);
 
                     break;
 
                 case "Productor 2":
+                     
                     producer2.setIcon(iconZZZ);
 
                     break;
 
                 case "Consumidor 2":
+                     
                     consumer2.setIcon(iconZZZ);
 
                     break;
 
                 case "Productor 3":
+                  
                     producer3.setIcon(iconZZZ);
 
                     break;
 
                 case "Consumidor 3":
+                 
                     consumer3.setIcon(iconZZZ);
 
                     break;
 
                 case "Productor 4":
+                   
                     producer4.setIcon(iconZZZ);
 
                     break;
 
                 case "Consumidor 4":
+                    
                     consumer4.setIcon(iconZZZ);
 
                     break;
 
                 case "Productor 5":
+                     
                     producer5.setIcon(iconZZZ);
 
                     break;
 
                 case "Consumidor 5":
+                    
                     consumer5.setIcon(iconZZZ);
 
                     break;
 
                 case "Productor 6":
+                     
                     producer6.setIcon(iconZZZ);
 
                     break;
 
                 case "Consumidor 6":
+                     
                     consumer6.setIcon(iconZZZ);
 
                     break;
 
-                default:
-                    setAllTextsDefault();
+                
 
             }
         }
@@ -472,18 +497,7 @@ public class Visual extends javax.swing.JFrame {
 
     public void setAllTextsDefault() {
         this.PlanificadorProcesos.clearSleepingList();
-        producer1.setText("");
-        consumer1.setText("");
-        producer2.setText("");
-        consumer2.setText("");
-        producer3.setText("");
-        consumer3.setText("");
-        producer4.setText("");
-        consumer4.setText("");
-        producer5.setText("");
-        consumer5.setText("");
-        producer6.setText("");
-        consumer6.setText("");
+     
 
     }
 

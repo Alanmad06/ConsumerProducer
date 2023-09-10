@@ -33,18 +33,17 @@ public class Producer implements Runnable {
 
     @Override
     public void run() {
-
+         
+while (true) {
         Producir();
-
+}
     }
 
     public void Producir() {
 
-        while (true) {
+        
 
             Almacen.waitPapasProducer("Productor " + id);
-
-        }
 
     }
 
