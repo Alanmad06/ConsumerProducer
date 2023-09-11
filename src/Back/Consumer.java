@@ -41,7 +41,7 @@ while (true) {
 
         
 
-            Almacen.waitPapasConsumer("Consumidor " + id);
+            Almacen.workingPapasConsumer("Consumidor " + id);
 
         
 

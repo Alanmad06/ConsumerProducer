@@ -14,11 +14,11 @@ import java.util.logging.Logger;
  *
  * @author alanm
  */
-public class PlanificadorProcesos {
+public class Procesos {
 
     public Almacen Almacen = new Almacen();
 
-    public PlanificadorProcesos() {
+    public Procesos() {
         System.out.println("constructor planificador procesos");
 
     }

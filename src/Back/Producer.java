@@ -43,7 +43,7 @@ while (true) {
 
         
 
-            Almacen.waitPapasProducer("Productor " + id);
+            Almacen.workingPapasProducer("Productor " + id);
 
     }
 

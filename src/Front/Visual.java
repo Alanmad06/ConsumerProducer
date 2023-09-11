@@ -4,7 +4,7 @@
  */
 package Front;
 
-import Back.PlanificadorProcesos;
+import Back.Procesos;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,13 +20,13 @@ import javax.swing.Timer;
  */
 public class Visual extends javax.swing.JFrame {
 
-    PlanificadorProcesos PlanificadorProcesos = new PlanificadorProcesos();
+    Procesos PlanificadorProcesos = new Procesos();
     ImageIcon iconProducerWorking = new ImageIcon("C:\\Users\\alanm\\OneDrive\\Documentos\\NetBeansProjects\\ConsumerProducer\\src\\images\\produciendo.gif");
     ImageIcon iconProducer = new ImageIcon("C:\\Users\\alanm\\OneDrive\\Documentos\\NetBeansProjects\\ConsumerProducer\\src\\images\\worker.png");
     ImageIcon iconConsumer = new ImageIcon("C:\\Users\\alanm\\OneDrive\\Documentos\\NetBeansProjects\\ConsumerProducer\\src\\images\\consumer.png");
     ImageIcon iconConsumerWorking = new ImageIcon("C:\\Users\\alanm\\OneDrive\\Documentos\\NetBeansProjects\\ConsumerProducer\\src\\images\\consumiendo.gif");
     ImageIcon iconZZZ = new ImageIcon("C:\\Users\\alanm\\OneDrive\\Documentos\\NetBeansProjects\\ConsumerProducer\\src\\images\\zzz.gif");
-    boolean Action = false;
+    
     /**
      * Creates new form Visual
      */
@@ -222,15 +222,16 @@ public class Visual extends javax.swing.JFrame {
 
         this.PlanificadorProcesos.startProcess();
 
-        
+        /*
         Thread hilo = new Thread(){
             public void run(){
                 while(true){
-                    colorBotons();
+                    
                 }
             }
         };
         hilo.start();
+        */
         Timer colorTimer = new Timer(100, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 
@@ -239,7 +240,7 @@ public class Visual extends javax.swing.JFrame {
                 
                 setProducersConsumers();
                 setSleep();
-                
+                colorBotons();
 
             }
         });

@@ -49,16 +49,7 @@ public class Almacen {
 
     }
 
-    public void changeUse() {
-        if (!this.Inuse) {
-            System.out.println("Almacen change use False-> True");
-            this.Inuse = true;
-        } else {
-            System.out.println("Almacen change use True-> False");
-            this.Inuse = false;
-        }
-
-    }
+   
 
     public boolean isItInUse() {
 
@@ -105,7 +96,7 @@ public class Almacen {
         return this.papas;
     }
 
-    public synchronized void waitPapasConsumer(String id) {
+    public synchronized void workingPapasConsumer(String id) {
 
         setWhoIsUsing(id);
         while(papas.isEmpty()) {
@@ -127,7 +118,7 @@ public class Almacen {
             setWhoIsUsing("");
     }
 
-    public synchronized void waitPapasProducer(String id) {
+    public synchronized void workingPapasProducer(String id) {
 
         setWhoIsUsing(id);
         while (papas.size() == 7) {
