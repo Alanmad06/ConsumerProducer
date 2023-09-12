@@ -11,6 +11,8 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
 
 /**
  *
@@ -23,13 +25,15 @@ public class Almacen {
     private final ArrayList<Integer> papas = new ArrayList<>(7);
     private String whoIsUsing;
     private ArrayList<String> whoIsSleeping = new ArrayList<>();
-
+    
+    
     public String getWhoIsUsing() {
         return whoIsUsing;
     }
 
     public void setWhoIsUsing(String whoIsUsing) {
         System.out.println("USANDO " + whoIsUsing);
+   
         this.whoIsUsing = whoIsUsing;
     }
 
@@ -59,7 +63,7 @@ public class Almacen {
     public void addPapa(String id) {
 
         System.out.println(id);
-        int numeroAleatorio = rand.nextInt(1001) + 2000;
+         long numeroAleatorio = (long) (Math.random() * 4000);
         System.out.println(numeroAleatorio);
 
         try {
@@ -77,7 +81,7 @@ public class Almacen {
     public  void popPapa(String id) {
 
         System.out.println(id);
-        int numeroAleatorio = rand.nextInt(1001) + 2000;
+         long numeroAleatorio = (long) (Math.random() * 4000);
         System.out.println(numeroAleatorio);
 
         try {
@@ -96,7 +100,7 @@ public class Almacen {
         return this.papas;
     }
 
-    public synchronized void workingPapasConsumer(String id) {
+    public synchronized void workingPapasConsumer(String id,JTextArea txt) {
 
         setWhoIsUsing(id);
         while(papas.isEmpty()) {
@@ -105,6 +109,7 @@ public class Almacen {
 
             try {
                 setWhoIsUsing("");
+                txt.append("\nDejo de Usar el Almacen/ Durmiendo " +id);
                 setWhoIsSleeping(id);
                 wait();
             } catch (InterruptedException ex) {
@@ -113,27 +118,31 @@ public class Almacen {
 
         } 
             setWhoIsUsing(id);
+             txt.append("\nUsando Almacen " +id);
             popPapa(id);
             notifyAllPapas();
             setWhoIsUsing("");
+            txt.append("\nDejo de usar Almacen " +id);
     }
 
-    public synchronized void workingPapasProducer(String id) {
+    public synchronized void workingPapasProducer(String id,JTextArea txt) {
 
         setWhoIsUsing(id);
         while (papas.size() == 7) {
             System.out.println("Wait on Papas Producer" + id);
             try {
                 setWhoIsUsing("");
+                txt.append("\nDejo de Usar el Almacen/ Durmiendo " +id);
                 setWhoIsSleeping(id);
                 wait();
             } catch (InterruptedException ex) {
                 Logger.getLogger(Almacen.class.getName()).log(Level.SEVERE, null, ex);
             }
         }   setWhoIsUsing(id);
+        txt.append("\nUsando Almacen " +id);
             addPapa(id);
             notifyAllPapas();
-            setWhoIsUsing("");
+            txt.append("\nDejo de Usar Almacen " +id);
         
 
     }

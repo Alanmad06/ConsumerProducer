@@ -2,16 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Front;
 
+
+package Front;
 import Back.Procesos;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
 /**
@@ -20,7 +19,7 @@ import javax.swing.Timer;
  */
 public class Visual extends javax.swing.JFrame {
 
-    Procesos PlanificadorProcesos = new Procesos();
+    Procesos Procesos;
     ImageIcon iconProducerWorking = new ImageIcon("C:\\Users\\alanm\\OneDrive\\Documentos\\NetBeansProjects\\ConsumerProducer\\src\\images\\produciendo.gif");
     ImageIcon iconProducer = new ImageIcon("C:\\Users\\alanm\\OneDrive\\Documentos\\NetBeansProjects\\ConsumerProducer\\src\\images\\worker.png");
     ImageIcon iconConsumer = new ImageIcon("C:\\Users\\alanm\\OneDrive\\Documentos\\NetBeansProjects\\ConsumerProducer\\src\\images\\consumer.png");
@@ -31,7 +30,9 @@ public class Visual extends javax.swing.JFrame {
      * Creates new form Visual
      */
     public Visual() {
+        
         initComponents();
+        Change.setVisible(false);
     }
 
     /**
@@ -65,7 +66,12 @@ public class Visual extends javax.swing.JFrame {
         consumer3 = new javax.swing.JLabel();
         consumer5 = new javax.swing.JLabel();
         consumer6 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Txt = new javax.swing.JTextArea();
         jPanel1 = new javax.swing.JPanel();
+        numberProducers = new javax.swing.JSpinner();
+        numberConsumers = new javax.swing.JSpinner();
+        Change = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 153, 51));
@@ -125,7 +131,7 @@ public class Visual extends javax.swing.JFrame {
                 IniciarProduccionActionPerformed(evt);
             }
         });
-        jPanel2.add(IniciarProduccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, -1, -1));
+        jPanel2.add(IniciarProduccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 330, -1, -1));
 
         producer6.setForeground(new java.awt.Color(0, 0, 0));
         producer6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/worker.png"))); // NOI18N
@@ -157,7 +163,7 @@ public class Visual extends javax.swing.JFrame {
 
         consumer1.setForeground(new java.awt.Color(0, 0, 0));
         consumer1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/consumer.png"))); // NOI18N
-        jPanel2.add(consumer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 70, -1));
+        jPanel2.add(consumer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 70, -1));
 
         consumer2.setForeground(new java.awt.Color(0, 0, 0));
         consumer2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/consumer.png"))); // NOI18N
@@ -175,24 +181,50 @@ public class Visual extends javax.swing.JFrame {
         consumer6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/consumer.png"))); // NOI18N
         jPanel2.add(consumer6, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 240, -1, -1));
 
+        Txt.setColumns(20);
+        Txt.setRows(5);
+        jScrollPane1.setViewportView(Txt);
+
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 270, 80));
+
         jPanel1.setBackground(new java.awt.Color(146, 147, 215));
+
+        Change.setText("OK");
+        Change.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ChangeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(numberProducers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(167, 167, 167)
+                .addComponent(Change)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(numberConsumers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 57, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(numberProducers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(numberConsumers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Change))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 592, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -200,7 +232,7 @@ public class Visual extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -219,19 +251,19 @@ public class Visual extends javax.swing.JFrame {
     }//GEN-LAST:event_Produccion7ActionPerformed
 
     private void IniciarProduccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IniciarProduccionActionPerformed
+        
+        int numProducers = (int) numberProducers.getValue();
+        int numConsumers = (int) numberConsumers.getValue();
+        
+        if(numProducers < 0 || numProducers >6 || numConsumers < 0 || numConsumers >6){
+            JOptionPane.showMessageDialog(this,"Introduzca un numero valido de Consumidores o Productores");
+        }else {
+        IniciarProduccion.setVisible(false);
+        Change.setVisible(true);
+        this.Procesos = new Procesos(Txt);
+        this.Procesos.startProcess(numProducers,numConsumers);
 
-        this.PlanificadorProcesos.startProcess();
-
-        /*
-        Thread hilo = new Thread(){
-            public void run(){
-                while(true){
-                    
-                }
-            }
-        };
-        hilo.start();
-        */
+        
         Timer colorTimer = new Timer(100, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 
@@ -245,15 +277,27 @@ public class Visual extends javax.swing.JFrame {
             }
         });
         colorTimer.start();
-
+        }
     }//GEN-LAST:event_IniciarProduccionActionPerformed
 
     private void Produccion4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Produccion4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Produccion4ActionPerformed
 
+    private void ChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChangeActionPerformed
+        // TODO add your handling code here:
+          int numProducers = (int) numberProducers.getValue();
+        int numConsumers = (int) numberConsumers.getValue();
+        if(numProducers < 0 || numProducers >6 || numConsumers < 0 || numConsumers >6){
+            JOptionPane.showMessageDialog(this,"Introduzca un numero valido de Consumidores o Productores");
+        }else {
+               this.Procesos.startProcess(numProducers,numConsumers);
+        }
+      
+    }//GEN-LAST:event_ChangeActionPerformed
+
     public void colorBotons() {
-        switch (this.PlanificadorProcesos.Almacen.viewPapas().size()) {
+        switch (this.Procesos.Almacen.viewPapas().size()) {
 
             case 1:
                 Produccion1.setBackground(Color.red);
@@ -318,7 +362,8 @@ public class Visual extends javax.swing.JFrame {
 
     public void setProducersConsumers() {
     setAllIconsDefault();
-        switch (this.PlanificadorProcesos.getUsingAlmacen()) {
+    if(this.Procesos.getUsingAlmacen()!=null){
+        switch (this.Procesos.getUsingAlmacen()) {
             case "Productor 1":
                 
                 producer1.setIcon(iconProducerWorking);
@@ -383,9 +428,10 @@ public class Visual extends javax.swing.JFrame {
 
         }
     }
+    }
 
     public void changeStatus() {
-        if (this.PlanificadorProcesos.getAlmacen().size() == 1 || this.PlanificadorProcesos.getAlmacen().size() == 6) {
+        if (this.Procesos.getAlmacen().size() == 1 || this.Procesos.getAlmacen().size() == 6) {
             setAllTextsDefault();
         }
     }
@@ -415,7 +461,7 @@ public class Visual extends javax.swing.JFrame {
             setAllDefault();
             
 
-        for (String i : this.PlanificadorProcesos.getSleep()) {
+        for (String i : this.Procesos.getSleep()) {
             switch (i) {
 
                 case "Productor 1":
@@ -497,7 +543,7 @@ public class Visual extends javax.swing.JFrame {
     }
 
     public void setAllTextsDefault() {
-        this.PlanificadorProcesos.clearSleepingList();
+        this.Procesos.clearSleepingList();
      
 
     }
@@ -538,6 +584,7 @@ public class Visual extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Change;
     private javax.swing.JButton IniciarProduccion;
     private javax.swing.JButton Produccion1;
     private javax.swing.JButton Produccion2;
@@ -546,6 +593,7 @@ public class Visual extends javax.swing.JFrame {
     private javax.swing.JButton Produccion5;
     private javax.swing.JButton Produccion6;
     private javax.swing.JButton Produccion7;
+    private javax.swing.JTextArea Txt;
     private javax.swing.JLabel consumer1;
     private javax.swing.JLabel consumer2;
     private javax.swing.JLabel consumer3;
@@ -555,6 +603,9 @@ public class Visual extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSpinner numberConsumers;
+    private javax.swing.JSpinner numberProducers;
     private javax.swing.JLabel producer1;
     private javax.swing.JLabel producer2;
     private javax.swing.JLabel producer3;
